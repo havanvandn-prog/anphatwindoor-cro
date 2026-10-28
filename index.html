@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Phương Án Nâng Cấp Website & Outline 6 Landing Page Chuẩn CRO - An Phát Windoor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1E3A8A;
+      --primary-light: #EFF6FF;
+      --secondary: #059669;
+      --secondary-light: #ECFDF5;
+      --accent: #D97706;
+      --accent-light: #FFFBEB;
+      --danger: #DC2626;
+      --text-main: #0F172A;
+      --text-muted: #475569;
+      --border: #E2E8F0;
+      --bg-page: #F8FAFC;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      overflow-x: hidden;
+      width: 100%;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text-main);
+      background-color: var(--bg-page);
+      line-height: 1.5;
+      font-size: 13.5px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 24px 20px;
+      width: 100%;
+    }
+
+    /* Print & Action Bar */
+    .action-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #1E293B;
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+    .action-bar p { font-size: 12px; color: #94A3B8; }
+    .btn-print {
+      background: var(--secondary);
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12.5px;
+      transition: background 0.2s;
+    }
+    .btn-print:hover { background: #047857; }
+
+    /* Document Sheet */
+    .doc-sheet {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 36px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      width: 100%;
+    }
+
+    /* Header */
+    .doc-header {
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 16px;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    .company-info h3 {
+      font-size: 14.5px;
+      font-weight: 800;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .company-info p { font-size: 11.5px; color: var(--text-muted); margin-top: 2px; }
+
+    /* Title Block */
+    .doc-title { margin-bottom: 20px; }
+    .doc-title h1 {
+      font-size: 21px;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1.35;
+      word-break: break-word;
+    }
+    .doc-title p { font-size: 13px; color: var(--text-muted); margin-top: 4px; }
+
+    /* Stat Cards */
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .stat-card {
+      background: var(--primary-light);
+      border: 1px solid #BFDBFE;
+      padding: 12px 14px;
+      border-radius: 6px;
+    }
+    .stat-card.emerald { background: var(--secondary-light); border-color: #A7F3D0; }
+    .stat-card.amber { background: var(--accent-light); border-color: #FDE68A; }
+    .stat-card .label { font-size: 10.5px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; }
+    .stat-card .value { font-size: 17px; font-weight: 800; color: var(--text-main); margin-top: 2px; }
+    .stat-card .desc { font-size: 11px; color: var(--text-muted); margin-top: 1px; }
+
+    /* Section Styling */
+    .section { margin-bottom: 26px; }
+    .section-title {
+      font-size: 14.5px;
+      font-weight: 700;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 6px;
+      margin-bottom: 12px;
+    }
+    .section-title .step-number {
+      background: var(--primary);
+      color: #fff;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* Proposal Cards */
+    .proposal-card {
+      background: #FAFAFA;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 16px;
+      margin-bottom: 14px;
+    }
+    .proposal-card.highlight {
+      border-left: 4px solid var(--secondary);
+      background: #FDFDFD;
+    }
+    .card-header-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .card-header-flex h3 { font-size: 13.5px; font-weight: 700; color: var(--text-main); }
+    .tag { font-size: 10.5px; font-weight: 600; padding: 2px 8px; border-radius: 4px; white-space: nowrap; }
+    .tag-green { background: #D1FAE5; color: #065F46; }
+    .tag-blue { background: #DBEAFE; color: #1E40AF; }
+    .tag-amber { background: #FEF3C7; color: #92400E; }
+
+    /* Responsive Table Container */
+    .table-responsive {
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: 10px 0;
+    }
+    table { width: 100%; border-collapse: collapse; font-size: 12px; min-width: 500px; }
+    th, td { border: 1px solid var(--border); padding: 8px 12px; text-align: left; vertical-align: top; }
+    th { background: #F1F5F9; color: #334155; font-weight: 700; font-size: 11.5px; }
+    tr:nth-child(even) td { background: #FAFAFA; }
+
+    /* Flow Boxes */
+    .flow-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 10px 0; }
+    .flow-box { background: #fff; border: 1px solid var(--border); padding: 10px 12px; border-radius: 5px; }
+    .flow-box .step-tag { font-size: 10px; font-weight: 700; color: var(--primary); margin-bottom: 2px; display: block; }
+    .flow-box h4 { font-size: 12.5px; font-weight: 700; margin-bottom: 3px; }
+    .flow-box p { font-size: 11px; color: var(--text-muted); line-height: 1.35; }
+
+    /* Outline Cards for 6 Landing Pages */
+    .outline-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+    }
+    .outline-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 1px solid #F1F5F9;
+      padding-bottom: 8px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .outline-header .title-area h4 {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--primary);
+    }
+    .outline-header .title-area span {
+      font-size: 11px;
+      color: var(--text-muted);
+      font-family: monospace;
+      word-break: break-all;
+    }
+    .intent-box {
+      background: #F8FAFC;
+      border-left: 3px solid var(--primary);
+      padding: 8px 12px;
+      margin-bottom: 10px;
+      font-size: 11.5px;
+      border-radius: 0 4px 4px 0;
+      line-height: 1.45;
+    }
+    .intent-box strong { color: var(--text-main); }
+    
+    .section-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+      margin-top: 8px;
+    }
+    .section-item {
+      background: #FAFAFA;
+      border: 1px dashed #CBD5E1;
+      padding: 8px 10px;
+      border-radius: 4px;
+      font-size: 11.5px;
+    }
+    .section-item .sec-title {
+      font-weight: 700;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin-bottom: 3px;
+    }
+    .section-item .sec-desc {
+      color: var(--text-muted);
+      font-size: 11px;
+      line-height: 1.35;
+    }
+
+    /* Alert Box */
+    .alert-box {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 9px 12px;
+      border-radius: 0 4px 4px 0;
+      margin: 10px 0;
+      font-size: 11.5px;
+      color: #78350F;
+      line-height: 1.45;
+    }
+
+    /* Mockup Grid & Elements */
+    .mockup-grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6px;
+    }
+    .mockup-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    /* RESPONSIVE AUDIT BREAKPOINTS */
+    @media (max-width: 768px) {
+      .container { padding: 14px 10px; }
+      .doc-sheet { padding: 20px 14px; border-radius: 8px; }
+      .doc-header { flex-direction: column; gap: 8px; }
+      .doc-title h1 { font-size: 18px; line-height: 1.35; }
+      .stat-grid { grid-template-columns: 1fr; gap: 8px; }
+      .flow-grid { grid-template-columns: 1fr; gap: 8px; }
+      .section-list { grid-template-columns: 1fr; gap: 8px; }
+      .outline-header { flex-direction: column; gap: 6px; }
+      .mockup-grid-4 { grid-template-columns: repeat(2, 1fr); gap: 6px; }
+    }
+
+    @media (max-width: 480px) {
+      body { font-size: 12.5px; }
+      .action-bar { flex-direction: column; gap: 8px; text-align: center; }
+      .btn-print { width: 100%; justify-content: center; min-height: 44px; }
+      .doc-title h1 { font-size: 16.5px; }
+      .mockup-buttons { flex-direction: column; width: 100%; }
+      .mockup-buttons button { width: 100% !important; justify-content: center; min-height: 44px; }
+      .flow-box h4 { font-size: 12px; }
+      .section-title { font-size: 13.5px; }
+    }
+
+    /* Print Styles */
+    @media print {
+      body { background: #fff; font-size: 10.5pt; }
+      .action-bar { display: none !important; }
+      .container { max-width: 100%; padding: 0; }
+      .doc-sheet { border: none; box-shadow: none; padding: 0; }
+      .outline-card { page-break-inside: avoid; border: 1px solid #CCC; margin-bottom: 12px; }
+      .section { page-break-inside: avoid; }
+      table { page-break-inside: avoid; }
+      @page { size: A4; margin: 10mm; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Action Bar -->
+    <div class="action-bar">
+      <div>
+        <strong>Tài liệu Phương án Phê duyệt & Outline 6 Landing Page Chuẩn CRO</strong>
+        <p>Bản trực tuyến tối ưu đa thiết bị (Mobile, Tablet, Desktop) gửi khách hàng</p>
+      </div>
+      <button class="btn-print" onclick="window.print()">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+        Xuất PDF / In A4
+      </button>
+    </div>
+
+    <!-- Document Sheet -->
+    <div class="doc-sheet">
+      <!-- Header -->
+      <div class="doc-header">
+        <div class="company-info">
+          <h3>CÔNG TY CỔ PHẦN ĐẦU TƯ PHÁT TRIỂN AN PHÁT WINDOOR</h3>
+          <p>Xưởng sản xuất: Số 39A ngõ 232 Trần Điền, Định Công, Hoàng Mai, Hà Nội</p>
+          <p>Website: anphatwindoor.vn | Hotline: 0979.452.876 – 0928.981.555</p>
+        </div>
+      </div>
+
+      <!-- Title Block -->
+      <div class="doc-title">
+        <h1>KẾ HOẠCH NÂNG CẤP WEBSITE & OUTLINE 6 LANDING PAGE CHUẨN CRO</h1>
+        <p>Bóc tách insight khách hàng, tái cấu trúc 6 trang đích Google Ads Search sang định dạng Scan-ability tinh gọn, nâng cao tỷ lệ chốt cuộc hẹn đo đạc thực tế tại công trình.</p>
+      </div>
+
+      <!-- Executive Stats -->
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="label">Mục Tiêu Số 1</div>
+          <div class="value">Lọc Khách Ham Rẻ</div>
+          <div class="desc">Hiện khoảng giá tự động, khách vãng lai tự rút lui</div>
+        </div>
+        <div class="stat-card emerald">
+          <div class="label">Hành Động Đích</div>
+          <div class="value">Chốt Lịch Đo Đạc 0đ</div>
+          <div class="desc">Kỹ sư mang mẫu nhôm & thước laser khảo sát tận nhà</div>
+        </div>
+        <div class="stat-card amber">
+          <div class="label">Phạm Vi Triển Khai</div>
+          <div class="value">6 Landing Page Độc Bản</div>
+          <div class="desc">Bỏ blog SEO Wikipedia → Chuẩn hóa 6 khối CRO</div>
+        </div>
+      </div>
+
+      <!-- Section 1 -->
+      <div class="section">
+        <div class="section-title">
+          <span class="step-number">1</span>
+          PHƯƠNG ÁN 1: DỰNG CÔNG CỤ TÍNH DỰ TOÁN TỰ ĐỘNG (WIDGET ĐỊNH KHUNG GIÁ)
+        </div>
+
+        <div class="proposal-card highlight">
+          <div class="card-header-flex">
+            <h3>Tự động neo khung ngân sách trước khi khách liên hệ</h3>
+            <span class="tag tag-green">AI build siêu tốc</span>
+          </div>
+          <p style="margin-bottom: 8px;">Dựng công cụ tính giá trực quan ngay trên web. Khách hàng tự chọn loại nhôm và diện tích để biết ngay khoảng tiền. Khách ham rẻ tự rút lui, xưởng chỉ tiếp những khách có nhu cầu thực tế.</p>
+          
+          <div class="flow-grid">
+            <div class="flow-box">
+              <span class="step-tag">BƯỚC 1</span>
+              <h4>Chọn Hệ Nhôm</h4>
+              <p>1 trong 4 nhóm: Nhôm PMA (Tiết kiệm), Xingfa tem đỏ (Tiêu chuẩn), Maxpro (Cao cấp), Cabin tắm.</p>
+            </div>
+            <div class="flow-box">
+              <span class="step-tag">BƯỚC 2</span>
+              <h4>Kéo Diện Tích</h4>
+              <p>Thanh trượt từ 5m² đến 80m² (mặc định 25m²) hoặc chọn: "Cửa đơn / Cửa nhà vệ sinh (WC)".</p>
+            </div>
+            <div class="flow-box">
+              <span class="step-tag">BƯỚC 3</span>
+              <h4>Hiện Giá Ngay</h4>
+              <p>Hiện khoảng giá tại chỗ (VD: 35 – 38 triệu, trọn gói kính & phụ kiện) + Nút gửi bản vẽ qua Zalo.</p>
+            </div>
+          </div>
+
+          <div class="alert-box">
+            <strong>Nguyên tắc khóa cứng:</strong> Báo <strong>GIÁ KHOẢNG</strong> (Range), không báo giá chết 1 con số. Hiện kết quả ngay trên màn hình, tuyệt đối không bắt nhập số điện thoại mới cho xem kết quả.
+          </div>
+
+          <!-- UI Mockup Widget -->
+          <div style="margin-top: 14px; background: #FFFFFF; border: 1.5px solid #CBD5E1; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);">
+            <!-- Mockup Window Bar -->
+            <div style="background: #0F172A; padding: 7px 12px; display: flex; align-items: center; justify-content: space-between;">
+              <div style="display: flex; gap: 5px; align-items: center;">
+                <span style="width: 9px; height: 9px; background: #EF4444; border-radius: 50%; display: inline-block;"></span>
+                <span style="width: 9px; height: 9px; background: #F59E0B; border-radius: 50%; display: inline-block;"></span>
+                <span style="width: 9px; height: 9px; background: #10B981; border-radius: 50%; display: inline-block;"></span>
+                <span style="color: #94A3B8; font-size: 11px; margin-left: 8px; font-weight: 500;">Mô phỏng Giao diện Widget Dự Toán (Hiển thị khi bấm nút "Dự Toán Ngay")</span>
+              </div>
+              <span style="color: #10B981; font-size: 10px; font-weight: 700; background: rgba(16, 185, 129, 0.2); padding: 2px 6px; border-radius: 3px;">TỰ ĐỘNG 100%</span>
+            </div>
+
+            <!-- Mockup Content -->
+            <div style="padding: 16px; background: #F8FAFC;">
+              <div style="text-align: center; margin-bottom: 12px;">
+                <h4 style="font-size: 14px; font-weight: 800; color: #1E3A8A; text-transform: uppercase; margin-bottom: 2px;">🧮 CÔNG CỤ DỰ TOÁN CHI PHÍ CỬA NHÔM TRỌN GÓI</h4>
+                <p style="font-size: 11.5px; color: #64748B;">Kéo chọn nhanh trong 10 giây để biết ngay khoảng ngân sách dự kiến tại xưởng An Phát</p>
+              </div>
+
+              <!-- Step 1 in Mockup -->
+              <div style="margin-bottom: 12px;">
+                <div style="font-size: 11px; font-weight: 700; color: #334155; margin-bottom: 5px;">BƯỚC 1: CHỌN HỆ NHÔM THI CÔNG</div>
+                <div class="mockup-grid-4">
+                  <div style="background: #FFF; border: 1px solid #CBD5E1; padding: 7px 5px; border-radius: 4px; text-align: center; font-size: 11px;">
+                    <strong style="display: block; color: #334155;">PMA Hệ 55</strong>
+                    <span style="font-size: 10px; color: #64748B;">Tiết kiệm ~25%</span>
+                  </div>
+                  <div style="background: #ECFDF5; border: 1.5px solid #059669; padding: 7px 5px; border-radius: 4px; text-align: center; font-size: 11px; position: relative;">
+                    <span style="position: absolute; top: -6px; right: 4px; background: #059669; color: #FFF; font-size: 8px; font-weight: 800; padding: 1px 4px; border-radius: 2px;">ĐANG CHỌN</span>
+                    <strong style="display: block; color: #065F46;">Xingfa Tem Đỏ ✔</strong>
+                    <span style="font-size: 10px; color: #047857; font-weight: 600;">Chuẩn quốc dân</span>
+                  </div>
+                  <div style="background: #FFF; border: 1px solid #CBD5E1; padding: 7px 5px; border-radius: 4px; text-align: center; font-size: 11px;">
+                    <strong style="display: block; color: #334155;">Maxpro JP</strong>
+                    <span style="font-size: 10px; color: #64748B;">Cao cấp Anodize</span>
+                  </div>
+                  <div style="background: #FFF; border: 1px solid #CBD5E1; padding: 7px 5px; border-radius: 4px; text-align: center; font-size: 11px;">
+                    <strong style="display: block; color: #334155;">Cabin Tắm Kính</strong>
+                    <span style="font-size: 10px; color: #64748B;">Kính 10mm Inox</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Step 2 in Mockup -->
+              <div style="margin-bottom: 12px; background: #FFF; border: 1px solid #E2E8F0; padding: 10px 12px; border-radius: 6px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; flex-wrap: wrap; gap: 4px;">
+                  <span style="font-size: 11px; font-weight: 700; color: #334155;">BƯỚC 2: KHỐI LƯỢNG ƯỚC TÍNH (DIỆN TÍCH CỬA)</span>
+                  <span style="background: #EFF6FF; color: #1E40AF; border: 1px solid #BFDBFE; font-size: 12px; font-weight: 800; padding: 2px 8px; border-radius: 4px;">25 m² (Nhà phố ~3-4 phòng)</span>
+                </div>
+                <!-- Simulated Slider -->
+                <div style="position: relative; height: 6px; background: #E2E8F0; border-radius: 3px; margin: 10px 0 5px 0;">
+                  <div style="width: 38%; height: 100%; background: #059669; border-radius: 3px;"></div>
+                  <div style="position: absolute; left: 38%; top: -5px; width: 16px; height: 16px; background: #059669; border: 2px solid #FFF; border-radius: 50%; box-shadow: 0 1px 3px rgba(0,0,0,0.3); transform: translateX(-50%);"></div>
+                </div>
+                <div style="display: flex; justify-content: space-between; font-size: 9.5px; color: #94A3B8;">
+                  <span>5 m² (Lẻ)</span>
+                  <span>15 m² (Căn hộ)</span>
+                  <span style="color: #059669; font-weight: 700;">25 m²</span>
+                  <span>50 m² (Nhà to)</span>
+                  <span>80 m² (Biệt thự)</span>
+                </div>
+              </div>
+
+              <!-- Step 3 in Mockup (Result Box) -->
+              <div style="background: #F0FDF4; border: 1.5px dashed #059669; padding: 12px; border-radius: 6px; text-align: center;">
+                <div style="font-size: 11px; font-weight: 700; color: #065F46; text-transform: uppercase;">KẾT QUẢ DỰ TOÁN TRỌN GÓI XƯỞNG (XINGFA QUẢNG ĐÔNG - 25M²)</div>
+                <div style="font-size: 22px; font-weight: 900; color: #059669; margin: 3px 0;">36.500.000đ – 39.500.000đ</div>
+                <p style="font-size: 11px; color: #047857; margin-bottom: 8px;">✔ Đã bao gồm: Kính an toàn Hải Long + Phụ kiện Kinlong chính hãng + Nhân công hoàn thiện (Cam kết không phát sinh)</p>
+                
+                <div class="mockup-buttons">
+                  <button style="background: #0284C7; color: #FFF; border: none; padding: 8px 16px; border-radius: 4px; font-weight: 700; font-size: 11.5px; cursor: pointer; display: inline-flex; align-items: center; gap: 5px;">
+                    💬 Gửi Bóc Tách Qua Zalo
+                  </button>
+                  <button style="background: #059669; color: #FFF; border: none; padding: 8px 16px; border-radius: 4px; font-weight: 700; font-size: 11.5px; cursor: pointer; display: inline-flex; align-items: center; gap: 5px;">
+                    📐 Đặt Lịch Đo Đạc 0đ Tận Nhà
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 2 -->
+      <div class="section">
+        <div class="section-title">
+          <span class="step-number">2</span>
+          PHƯƠNG ÁN 2: ĐỔI NÚT CTA THÀNH "DỰ TOÁN NGAY" (BẤM MỞ POPUP TÍNH GIÁ TẠI CHỖ)
+        </div>
+
+        <div class="proposal-card highlight">
+          <div class="card-header-flex">
+            <h3>Cơ chế: Bấm nút là mở ngay cửa sổ công cụ tính toán chi phí</h3>
+            <span class="tag tag-green">Khóa cứng 100% Modal Tool</span>
+          </div>
+          <p style="margin-bottom: 8px;">Đổi toàn bộ nút CTA trên Menu Header và trong bài viết thành <strong>"DỰ TOÁN NGAY"</strong>. Khi khách bấm, màn hình <strong>mở ngay cửa sổ tính giá</strong> để khách tự thao tác trong 10 giây. Khách biết trước khoảng tiền, không mất công chờ đợi và chấm dứt việc vào Zalo hỏi giá vu vơ.</p>
+
+          <div class="table-responsive">
+            <table>
+              <thead>
+                <tr>
+                  <th style="width: 25%;">Vị trí nút bấm</th>
+                  <th style="width: 35%;">Nội dung cũ</th>
+                  <th style="width: 40%;">Nội dung mới chuẩn CRO</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Menu Header (Góc phải)</strong></td>
+                  <td>"NHẬN BÁO GIÁ" (Trỏ trang liên hệ hỏng)</td>
+                  <td><strong>"DỰ TOÁN NGAY"</strong><br>👉 <em>Bấm vào: Bật ngay Popup công cụ để khách tính giá luôn.</em></td>
+                </tr>
+                <tr>
+                  <td><strong>Trong bài & Giữa các khối</strong></td>
+                  <td>"Gọi hotline hoặc Zalo nhận báo giá"</td>
+                  <td><strong>"DỰ TOÁN CHI PHÍ NGAY"</strong><br>👉 <em>Bấm vào: Mở hộp thoại công cụ tính toán tại chỗ.</em></td>
+                </tr>
+                <tr>
+                  <td><strong>Chân trang mobile (Sticky Bar)</strong></td>
+                  <td>Chỉ có nút gọi điện thoại dễ bấm nhầm</td>
+                  <td>Thêm nút <strong>"Dự Toán Nhanh"</strong><br>👉 <em>Khách lướt mobile bấm là mở giao diện tính giá siêu tốc.</em></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 3 -->
+      <div class="section">
+        <div class="section-title">
+          <span class="step-number">3</span>
+          PHƯƠNG ÁN 3: BÓC TÁCH INSIGHT & OUTLINE 6 TRANG LANDING PAGE CHUẨN CRO
+        </div>
+
+        <p style="margin-bottom: 12px; font-size: 12px; color: var(--text-muted);">
+          Áp dụng quy trình nghiên cứu insight thực tế từ Search Terms và cuộc gọi/chat trong 10 ngày qua. Toàn bộ 6 bài viết được cắt bỏ 100% định nghĩa sách vở ("cửa nhôm là gì", "cấu tạo gồm nhôm kính"), chuyển thành cấu trúc <strong>6 Khối tinh gọn</strong> tối ưu cho khách đọc lướt trên điện thoại (Scan-ability First):
+        </p>
+
+        <!-- Page 1 -->
+        <div class="outline-card">
+          <div class="outline-header">
+            <div class="title-area">
+              <h4>BÀI 1: BÁO GIÁ CỬA NHÔM KÍNH TỔNG HỢP & THI CÔNG TRỌN GÓI</h4>
+              <span>URL: https://anphatwindoor.vn/bao-gia-cua-nhom-kinh-tai-ha-noi-moi-chi-tiet/</span>
+            </div>
+            <span class="tag tag-blue">Chiến dịch: BOFU - Category / Báo Giá / Thi Công HN</span>
+          </div>
+          <div class="intent-box">
+            <strong>Nhu cầu tìm kiếm (Query):</strong> <em>báo giá cửa nhôm kính tại hà nội, giá thi công cửa nhôm kính trọn gói, xưởng sản xuất nhôm kính hoàng mai.</em><br>
+            <strong>Nỗi sợ của khách (Friction):</strong> Sợ gặp thợ cò mồi nhận việc rồi bán lại ăn chênh; sợ bẫy báo giá m² rẻ rồi lúc nghiệm thu tính phát sinh tiền phụ kiện, tiền cẩu tầng cao; sợ xưởng nhôm cỏ làm ẩu bị ngấm nước mưa.<br>
+            <strong>Thông điệp then chốt (Message Match):</strong> Giá gốc tận xưởng Định Công - Báo giá trọn gói minh bạch 100% - Kỹ sư đo đạc laser 0đ tại nhà.
+          </div>
+          <div class="section-list">
+            <div class="section-item">
+              <div class="sec-title">Section 1: Hero Banner</div>
+              <div class="sec-desc">H1: Xưởng Sản Xuất & Thi Công Cửa Nhôm Kính Trọn Gói Hà Nội. 3 Cam kết: Giá gốc tại xưởng - 100% vật tư chính hãng - Khảo sát 0đ. Nút CTA: [Dự Toán Ngay].</div>
+            </div>
+            <div class="section-item">
+              <div class="sec-title">Section 2: Cost Estimator Widget</div>
+              <div class="sec-desc">Công cụ kéo diện tích m² tính giá tức thì. Trả kết quả khoảng giá minh bạch, nút [Gửi bảng bóc tách chi tiết qua Zalo].</div>
+            </div>
+            <div class="section-item">
+              <div class="sec-title">Section 3: Bảng 3 Phân Khúc Rõ Ràng</div>
+              <div class="sec-desc">3 Thẻ giá: Gói Tiết kiệm (PMA: 1.450k/m²) | Gói Tiêu chuẩn (Xingfa: 1.850k - 2.200k/m²) | Gói Cao cấp (Maxpro: 2.800k - 3.500k/m²). Ghi rõ: Đã gồm đủ phụ kiện & lắp đặt.</div>
+            </div>
+            <div class="section-item">
+              <div class="sec-title">Section 4: Năng Lực Xưởng Thật</div>
+              <div class="sec-desc">Video 30s dàn máy CNC xưởng Định Công + 6 ảnh công trình thật hoàn thiện tại Hà Nội (Nhà phố Cầu Giấy, Biệt thự Long Biên). Cam kết đền 200% nếu hàng giả.</div>
+            </div>
+            <div class="section-item">
+              <div class="sec-title">Section 5: Quy Trình 4 Bước</div>
+              <div class="sec-desc">1. Báo khoảng giá → 2. Kỹ sư mang mẫu nhôm qua đo đạc 0đ tận nơi → 3. Gia công xưởng → 4. Lắp đặt & Bảo hành 5-10 năm.</div>
+            </div>
+            <div class="section-item">
+              <div class="sec-title">Section 6: Form & Bản Đồ Xưởng</div>
+              <div class="sec-desc">Form 1 ô SĐT: [Đặt lịch đo đạc 0đ tận nhà] + Nhúng bản đồ Google Maps xưởng số 39A ngõ 232 Trần Điền, Định Công để khẳng định địa chỉ thật.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Page 2 -->
+        <div class="outline-card">
+          <div class="outline-header">
+            <div class="title-area">
+              <h4>BÀI 2: CỬA NHÔM XINGFA NHẬP KHẨU QUẢNG ĐÔNG CHÍNH HÃNG</h4>
+              <span>URL: https://anphatwindoor.vn/cua-nhom-xingfa-chinh-hang-bao-gia-moi-nhat/</span>
+            </div>
+            <span class="tag tag-green">Chiến dịch: BOFU - Xingfa</span>
+          </div>
+          <div class="intent-box">
+            <strong>Nhu cầu tìm kiếm (Query):</strong> <em>báo giá cửa nhôm xingfa nhập khẩu chính hãng, giá cửa nhôm xingfa tem đỏ quảng đông, giá cửa nhôm xingfa hệ 55 hà nội.</em><br>
+            <strong>Nỗi sợ của khách (Friction):</strong> Thị trường loạn giá (từ 1.3tr đến 2.6tr), sợ mua phải <strong>Xingfa nhái, tem đỏ giả, phụ kiện Kinlong loại 2/3</strong> dùng 1 năm là rỉ sét, xệ cánh, kẹt khóa.<br>
+            <strong>Thông điệp then chốt (Message Match):</strong> Cam kết 100% nhôm Xingfa tem đỏ chính hãng (quét mã QR) + Đền bù 200% nếu phát hiện hàng giả + Bảo hành 10 năm.
+          </div>
+          <div class="section-list">
+            <div class="section-item">
+              <div class="sec-title">Section 1: Hero Banner</div>
+              <div class="sec-desc">H1: Báo Giá Cửa Nhôm Xingfa Nhập Khẩu Tem Đỏ Chính Hãng 2026. Huy hiệu: Đền 200% nếu phát hiện nhôm nhái. Nút CTA: [Dự Toán Ngay].</div>
+            </div>
+            <div class="section-item">
+              <div class="sec-title">Section 2: Bảng Giá Trọn Gói Theo Hệ</div>
+              <div class="sec-desc">Thẻ giá rõ ràng: Hệ 55 mở quay (1.850k - 2.100k/m²) | Hệ 93 mở trượt (1.750k - 1.950k/m²) | Cửa đi 4 cánh mở xếp trượt. Cam kết đã gồm phụ kiện Kinlong/Draho chính hãng.</div>
+            </div>
+            <div class="section-item">
+              <div class="sec-title">Section 3: Cách Nhận Biết Nhôm Thật (30s)</div>
+              <div class="sec-desc">So sánh trực quan 3 điểm: Mã QR quét nguồn gốc + Bề mặt sơn tĩnh điện ánh kim AkzoNobel + Độ dày thanh nhôm chuẩn 1.4mm - 2.0mm có gân gia cường.</div>
+            </div>
+            <div class="section-item">
+              <div class="sec-title">Section 4: Widget Tính Giá Xingfa</div>
+              <div class="sec-desc">Công cụ chọn loại cửa (cửa đi 4 cánh, cửa sổ 2 cánh, cửa WC) → Kéo m² → Ra khung giá dự toán trọn gói ngay tại chỗ.</div>
+            </div>
+            <div class="section-item">
+              <div class="sec-title">Section 5: Thư Viện Công Trình Thật</div>
+              <div class="sec-desc">Ảnh bàn giao cửa Xingfa nhà phố, biệt thự thực tế tại Hà Nội. Chú thích rõ địa chỉ và loại kính an toàn sử dụng.</div>
+            </div>
+            <div class="section-item">
+              <div class="sec-title">Section 6: Cam Kết & Đặt Hẹn 0đ</div>
+              <div class="sec-desc">Nút hành động: [Kỹ sư mang mẫu góc nhôm Xingfa tem đỏ qua đối chiếu & đo đạc miễn phí tại nhà]. Form nhận lịch hẹn 24/7.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Page 3 -->
+        <div class="outline-card">
+          <div class="outline-header">
+            <div class="title-area">
+              <h4>BÀI 3: CỬA NHÔM PMA HỆ 55 VÁT CẠNH (GIẢI PHÁP TIẾT KIỆM)</h4>
+              <span>URL: https://anphatwindoor.vn/cua-nhom-pma/</span>
+            </div>
+            <span class="tag tag-amber">Chiến dịch: BOFU - Báo Giá / PMA</span>
+          </div>
+          <div class="intent-box">
+            <strong>Nhu cầu tìm kiếm (Query):</strong> <em>giá cửa nhôm pma hệ 55, báo giá cửa nhôm pma trọn gói hà nội, cửa nhôm pma vát cạnh bao nhiêu tiền 1m2.</em><br>
+            <strong>Nỗi sợ của khách (Friction):</strong> Muốn tiết kiệm chi phí nhưng sợ nhôm ọp ẹp; ghét nhất việc báo 1.500k/m² xong lại mập mờ "cửa đi thêm tiền khóa" làm phát sinh đội giá.<br>
+            <strong>Thông điệp then chốt (Message Match):</strong> Tiết kiệm 20–30% so với Xingfa nhưng độ bền tương đương - Báo giá trọn gói 1.450k/m² đã bao gồm đủ khóa và phụ kiện.
+          </div>
+          <div class="section-list">
+            <div class="section-item">
+              <div class="sec-title">Section 1: Hero Banner</div>
+              <div class="sec-desc">H1: Cửa Nhôm PMA Hệ 55 Vát Cạnh - Bền Đẹp, Tiết Kiệm 25% Chi Phí. Cam kết: Báo giá trọn gói 100%, không phát sinh tiền khóa. Nút: [Dự Toán Ngay].</div>
+            </div>
+            <div class="section-item">
+              <div class="sec-title">Section 2: Bảng Giá PMA Minh Bạch</div>
+              <div class="sec-desc">Công khai đơn giá trọn gói: Cửa sổ mở quay/hất (1.400k - 1.450k/m²) | Cửa đi mở quay (1.500k - 1.550k/m² đã gồm khóa). Phụ kiện đồng bộ PMA bảo hành 3 năm.</div>
+            </div>
+            <div class="section-item">
+              <div class="sec-title">Section 3: So Sánh PMA vs Xingfa</div>
+              <div class="sec-desc">Bảng đối chiếu 3 dòng: Về độ dày (1.2 - 1.4mm) → Khả năng chịu lực (Gân vát cạnh tăng cứng) → Chi phí thực tế cho căn nhà 25m² (PMA rẻ hơn 12–15 triệu).</div>
+            </div>
+            <div class="section-item">
+              <div class="sec-title">Section 4: Widget Tính Dự Toán Nhanh</div>
+              <div class="sec-desc">Kéo chọn m² công trình → Báo giá trọn gói dự kiến (ví dụ: 25m² PMA = 36.500.000đ trọn gói không phát sinh). Nút chat Zalo nhận file dự toán.</div>
+            </div>
+            <div class="section-item">
+              <div class="sec-title">Section 5: Ảnh Mẫu Cửa PMA Thực Tế</div>
+              <div class="sec-desc">Hình ảnh chi tiết đường vát cạnh tinh tế, màu sắc ghi xám/nâu cafe sang trọng lắp đặt tại nhà dân dụng và nhà cho thuê tại Hà Nội.</div>
+            </div>
+            <div class="section-item">
+              <div class="sec-title">Section 6: Đặt Lịch Khảo Sát Tận Nhà</div>
+              <div class="sec-desc">Kêu gọi hành động: [Kỹ sư mang mẫu nhôm PMA qua đo đạc và tư vấn phương án tiết kiệm nhất cho công trình]. Hotline trực 24/7.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Page 4 -->
+        <div class="outline-card">
+          <div class="outline-header">
+            <div class="title-area">
+              <h4>BÀI 4: VÁCH KÍNH NHÀ TẮM & CABIN TẮM KÍNH CƯỜNG LỰC</h4>
+              <span>URL: https://anphatwindoor.vn/bao-gia-vach-kinh-nha-tam-cabin-tam-cuong-luc-gia-xuong-ha-noi/</span>
+            </div>
+            <span class="tag tag-blue">Chiến dịch: BOFU - Vách kính nhà tắm</span>
+          </div>
+          <div class="intent-box">
+            <strong>Nhu cầu tìm kiếm (Query):</strong> <em>báo giá vách kính nhà tắm hà nội, cabin phòng tắm kính cường lực, vách kính tắm 135 độ 90 độ mở lùa.</em><br>
+            <strong>Nỗi sợ của khách (Friction):</strong> Sợ nước tràn bắn ra ngoài làm ướt sàn vệ sinh; sợ phụ kiện kim khí bị gỉ sét, ố vàng, xệ cánh sau vài tháng do ẩm ướt; sợ nổ kính cường lực.<br>
+            <strong>Thông điệp then chốt (Message Match):</strong> Kính cường lực 10mm Hải Long tôi nhiệt chuẩn + Phụ kiện Inox 304/SUS 304 chống rỉ nước 100% bảo hành 5 năm + Gioăng từ chắn nước tuyệt đối.
+          </div>
+          <div class="section-list">
+            <div class="section-item">
+              <div class="sec-title">Section 1: Hero Banner</div>
+              <div class="sec-desc">H1: Báo Giá Vách Kính Nhà Tắm & Cabin Tắm Kính Cường Lực Giá Xưởng. Cam kết: Phụ kiện Inox 304 chống gỉ - Kín khít khô ráo 100%. Nút: [Dự Toán Ngay].</div>
+            </div>
+            <div class="section-item">
+              <div class="sec-title">Section 2: Báo Giá Trọn Gói Theo Kiểu Dáng</div>
+              <div class="sec-desc">4 Thẻ mẫu phổ biến: Vách kính tắm đứng 90 độ | Vách kính vát góc 135 độ | Cabin tắm cửa trượt lùa (cho WC nhỏ) | Vách tắm kính 180 độ. Báo giá trọn bộ gồm kính + phụ kiện.</div>
+            </div>
+            <div class="section-item">
+              <div class="sec-title">Section 3: Giải Pháp Chống Nước & An Toàn</div>
+              <div class="sec-desc">Minh họa 3 chi tiết: Gioăng từ hít chặt chống thoát nước + Kẹp định vị Inox 304 nguyên khối + Kính dán film an toàn chống vỡ vụn.</div>
+            </div>
+            <div class="section-item">
+              <div class="sec-title">Section 4: Widget Tính Giá Bộ Cabin Tắm</div>
+              <div class="sec-desc">Chọn kiểu dáng (90 độ / 135 độ / cửa lùa) → Hiện ngay đơn giá hoàn thiện trọn bộ tại nhà (từ 5.500.000đ - 7.500.000đ/bộ).</div>
+            </div>
+            <div class="section-item">
+              <div class="sec-title">Section 5: Ảnh Thi Công Thực Tế Phòng Tắm</div>
+              <div class="sec-desc">Album ảnh chụp các bộ vách tắm kính trong căn hộ chung cư và nhà phố Hà Nội, mặt kính trong suốt, thanh ray trượt mượt mà.</div>
+            </div>
+            <div class="section-item">
+              <div class="sec-title">Section 6: Đặt Lịch Đo Đạc Trong 2 Giờ</div>
+              <div class="sec-desc">Kêu gọi: [Đo đạc laser khớp độ dốc sàn và ô chờ gạch hoàn toàn miễn phí]. Cam kết lắp đặt nhanh gọn trong ngày không bụi bẩn.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Page 5 -->
+        <div class="outline-card">
+          <div class="outline-header">
+            <div class="title-area">
+              <h4>BÀI 5: CỬA CÁCH ÂM CHỐNG ỒN CHUYÊN SÂU (KÍNH HỘP CHÂN KHÔNG)</h4>
+              <span>URL: https://anphatwindoor.vn/bao-gia-cua-cach-am-chong-on-tai-ha-noi/</span>
+            </div>
+            <span class="tag tag-green">Chiến dịch: BOFU - Cách Âm</span>
+          </div>
+          <div class="intent-box">
+            <strong>Nhu cầu tìm kiếm (Query):</strong> <em>cửa cách âm chống ồn phòng ngủ, cửa nhôm kính hộp cách âm, lắp cửa kính cách âm nhà mặt đường hà nội.</em><br>
+            <strong>Nỗi sợ của khách (Friction):</strong> Nhà mặt đường lớn, gần đường tàu bị tiếng còi xe làm mất ngủ kinh niên; sợ tốn tiền chục triệu lắp cửa mà không giảm được ồn.<br>
+            <strong>Thông điệp then chốt (Message Match):</strong> Cam kết giảm ồn thực tế 28dB – 42dB+ (Kính hộp chân không + Gioăng EPDM 3 tầng) - Kỹ thuật mang máy đo độ ồn qua đo tận nơi!
+          </div>
+          <div class="section-list">
+            <div class="section-item">
+              <div class="sec-title">Section 1: Hero Banner</div>
+              <div class="sec-desc">H1: Giải Pháp Cửa Nhôm Cách Âm Chống Ồn Chuyên Sâu Cho Nhà Mặt Phố Hà Nội. Đo đạc độ ồn thực tế bằng máy trước thi công. Nút: [Dự Toán Ngay].</div>
+            </div>
+            <div class="section-item">
+              <div class="sec-title">Section 2: Video Test Độ Ồn Thực Tế (Proof)</div>
+              <div class="sec-desc">Video 45s đo tiếng còi xe ngoài mặt đường phố Hà Nội (85dB) → Đóng cửa kính hộp cách âm An Phát Windoor độ ồn tụt xuống 38dB (êm như thư viện).</div>
+            </div>
+            <div class="section-item">
+              <div class="sec-title">Section 3: Cấu Tạo Độc Quyền Giảm Ồn</div>
+              <div class="sec-desc">Bóc tách 3 tầng cách âm: 1. Kính hộp 5+9A+5mm nạp khí trơ Argon | 2. Cầu cách âm Polyamide triệt tiêu sóng âm | 3. Hệ gioăng EPDM 3 tầng kín khít tuyệt đối.</div>
+            </div>
+            <div class="section-item">
+              <div class="sec-title">Section 4: Bảng Giá Các Gói Chống Ồn</div>
+              <div class="sec-desc">Gói Chống ồn Vừa (Nhà ngõ gần đường) → Gói Chống ồn Nặng (Nhà mặt đường vành đai, đường sắt). Đơn giá bóc tách theo m² rõ ràng.</div>
+            </div>
+            <div class="section-item">
+              <div class="sec-title">Section 5: Widget Dự Toán Phòng Ngủ / Mặt Tiền</div>
+              <div class="sec-desc">Khách chọn kích thước ban công/cửa sổ → Ra chi phí giải pháp cách âm trọn gói. Nút gửi bản vẽ hoặc kích thước qua Zalo.</div>
+            </div>
+            <div class="section-item">
+              <div class="sec-title">Section 6: Đặt Lịch Đo Độ Ồn 0đ Tận Nhà</div>
+              <div class="sec-desc">Đòn bẩy chốt sale độc bản: [Kỹ thuật mang máy đo độ ồn chuyên dụng qua đo mức độ ô nhiễm âm thanh tại nhà miễn phí].</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Page 6 -->
+        <div class="outline-card">
+          <div class="outline-header">
+            <div class="title-area">
+              <h4>BÀI 6: CỬA NHÔM CAO CẤP MAXPRO NHẬT BẢN (ANODIZE ED)</h4>
+              <span>URL: https://anphatwindoor.vn/cua-nhom-maxpro/</span>
+            </div>
+            <span class="tag tag-amber">Chiến dịch: BOFU - Báo Giá / Maxpro</span>
+          </div>
+          <div class="intent-box">
+            <strong>Nhu cầu tìm kiếm (Query):</strong> <em>báo giá cửa nhôm maxpro nhật bản, cửa nhôm cao cấp nhập khẩu biệt thự, nhôm maxpro jp màu champagne.</em><br>
+            <strong>Nỗi sợ của khách (Friction):</strong> Căn biệt thự hàng chục tỷ nhưng dùng nhôm sơn thông thường bị trầy xước, phai màu theo thời gian; phụ kiện lỏng lẻo không xứng tầm công trình sang trọng.<br>
+            <strong>Thông điệp then chốt (Message Match):</strong> Công nghệ mạ điện phân Anodize ED chống trầy xước, kháng muối biển tuyệt đối - Màu Champagne/Nâu thu hút tài lộc - Bảo hành màu sơn 25 năm.
+          </div>
+          <div class="section-list">
+            <div class="section-item">
+              <div class="sec-title">Section 1: Hero Banner</div>
+              <div class="sec-desc">H1: Cửa Nhôm Maxpro Nhật Bản - Đẳng Cấp Biệt Thự & Kháng Muối Biển 25 Năm. Màu Anodize ED thời thượng. Nút CTA: [Dự Toán Ngay].</div>
+            </div>
+            <div class="section-item">
+              <div class="sec-title">Section 2: Bảng Giá Dự Toán Các Hệ Maxpro</div>
+              <div class="sec-desc">Báo giá chi tiết: Maxpro Hệ 65 (Cửa đi mở quay) | Maxpro Hệ 83 (Cửa đi trượt lùa siêu êm) | Maxpro Hệ 115 (Cửa xếp trượt bản lớn). Phụ kiện CMECH (Mỹ) / Roto (Đức).</div>
+            </div>
+            <div class="section-item">
+              <div class="sec-title">Section 3: Điểm Khác Biệt Độc Bản (USPs)</div>
+              <div class="sec-desc">4 Đẳng cấp vượt trội: Lớp phủ ED chống bám vân tay → Kháng ăn mòn muối biển gấp 10 lần nhôm thường → Tải trọng cánh lên tới 400kg → Vận hành êm ái trọn đời.</div>
+            </div>
+            <div class="section-item">
+              <div class="sec-title">Section 4: Thư Viện Biệt Thự Thực Tế</div>
+              <div class="sec-desc">Bộ sưu tập hình ảnh thực tế lắp đặt nhôm Maxpro tại Vinhomes Riverside, Biệt thự Ocean Park, Flamingo Đại Lải...</div>
+            </div>
+            <div class="section-item">
+              <div class="sec-title">Section 5: Widget Tính Ngân Sách Biệt Thự</div>
+              <div class="sec-desc">Khách chọn hệ cửa và diện tích tổng thể → Ra bảng dự toán ngân sách chi tiết dòng cao cấp. Tùy chọn phối phụ kiện CMECH/Sigico.</div>
+            </div>
+            <div class="section-item">
+              <div class="sec-title">Section 6: Đặt Hẹn Kỹ Sư Cao Cấp Khảo Sát</div>
+              <div class="sec-desc">Nút hành động: [Kỹ sư mang catalog mẫu nhôm Anodize ED nguyên bản và máy laser qua khảo sát công trình miễn phí]. Bảo mật thông tin gia chủ.</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
